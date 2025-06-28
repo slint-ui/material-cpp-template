@@ -1,9 +1,5 @@
 {
-    "[rust]": {
-        "editor.defaultFormatter": "rust-lang.rust-analyzer"
-    },
     "slint.libraryPaths": {
-        "material": "./material-components"
+        "material": "./material-components/material.slint"
     }
-
 }
