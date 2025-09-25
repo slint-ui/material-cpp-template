@@ -1,0 +1,17 @@
+import { FilledButton, ElevatedCard } from "@material";
+
+export component MainWindow inherits Window {
+    property <int> count: 0;
+
+    ElevatedCard {
+        width: 90%;
+        height: 90%;
+        FilledButton {
+            text: "Count: " + count;
+            icon: @image-url("slint-logo.svg");
+            clicked => {
+                count += 1;
+            }
+        }
+    }
+}
