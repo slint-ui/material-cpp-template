@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.21)
 project(my_application LANGUAGES CXX)
 
-find_package(Slint QUIET)
+find_package(Slint 1.18 QUIET)
 if (NOT Slint_FOUND)
   message("Slint could not be located in the CMake module search path. Downloading it from Git and building it locally")
   include(FetchContent)
@@ -18,7 +18,7 @@ endif (NOT Slint_FOUND)
 
 add_executable(my_application src/main.cpp)
 target_link_libraries(my_application PRIVATE Slint::Slint)
-slint_target_sources(my_application ui/main.slint LIBRARY_PATHS material=${CMAKE_CURRENT_SOURCE_DIR}/material-1.0/material.slint)
+slint_target_sources(my_application ui/main.slint LIBRARY_PATHS material=${CMAKE_CURRENT_SOURCE_DIR}/material-1.1.0/material.slint)
 # On Windows, copy the Slint DLL next to the application binary so that it's found.
 if (WIN32)
     add_custom_command(TARGET my_application POST_BUILD COMMAND ${CMAKE_COMMAND} -E copy $<TARGET_RUNTIME_DLLS:my_application> $<TARGET_FILE_DIR:my_application> COMMAND_EXPAND_LISTS)
